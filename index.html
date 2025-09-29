@@ -48,8 +48,8 @@
 <body>
 
   <div class="container text-center mt-4">
-    <h1>Buat Kamu ❤️</h1>
-    <h3>Karena aku masih cinta...</h3>
+    <h1>Buat Ayaang ❤️</h1>
+    <h3>Setiap detik tanpa ayang, rasanya hampa. Aku tetep di sini, nunggu kita bisa ngobrol lagi.</h3>
     <button class="btn-love mt-3" onclick="showMessage()">Klik Aku</button>
 
     <!-- Galeri Foto -->
@@ -92,13 +92,34 @@
   </div>
 
   <script>
-    function showMessage() {
-      Swal.fire({
-        title: 'Untuk Kamu ❤️',
-        text: 'Aku masih sayang dan cinta kamu. Aku cuma pengen kita bisa baik-baik lagi.',
-        icon: 'info',
-        confirmButtonText: 'Aku ngerti'
-      });
+    const messages = [
+      "Aku percaya kita bisa lewatin ini yaaang. Aku gak bakal pergi dari hati ayaang.",
+      "Aku masih cinta sama ayaang. Aku nggak pernah pengen kita selesai, aku cuma pengen kita baikan. Aku kangen momen kita main bareng, bercanda, sayang-sayangan kayak dulu. Aku tahu kita lagi ribet sekarang, tapi aku masih pengen jalan bareng sama ayaaang. Aku pengen kita ngobrol baik-baik, tanpa marah, tanpa diem-dieman. Aku pengen kita berdua yang berusaha, supaya kita bisa kembali jadi kita yang dulu.",
+      "Aku janji mulai sekarang aku nggak bakal egois lagi, nggak bakal gampang emosian. Aku belajar dari semua kesalahan kita. Aku pengen kita bisa ngobrol baik-baik, saling ngerti, dan saling percaya lagi. Aku cuma pengen kita bisa bahagia bareng, kayak dulu. Aku masih cinta sama ayaaang, dan aku pengen kita bisa coba lagi dengan lebih dewasa."
+    ];
+  
+    let currentIndex = 0;
+  
+    function showMessages() {
+      if(currentIndex < messages.length){
+        Swal.fire({
+          title: 'Buat ayaaangku tercinta ❤️',
+          text: messages[currentIndex],
+          icon: 'info',
+          confirmButtonText: 'Lanjut'
+        }).then(() => {
+          currentIndex++;
+          showMessages(); // panggil lagi buat pesan berikutnya
+        });
+      } else {
+        // semua pesan sudah ditampilkan
+        Swal.fire({
+          title: 'Terima Kasih',
+          text: 'Aku cuma pengen kita balik lagi kayak dulu.',
+          icon: 'success',
+          confirmButtonText: 'Selesai'
+        });
+      }
     }
   </script>
 
